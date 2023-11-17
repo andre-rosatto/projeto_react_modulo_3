@@ -11,6 +11,7 @@
 	line-height: 125%;
 	box-shadow: 0 0 5px black;
 	font-size: 16px;
+	margin-bottom: 2px;
 }
 
 .User__info {
@@ -20,11 +21,6 @@
 
 .User__info p {
 	margin: 0;
-	text-align: left;
-}
-
-.User__info span {
-	text-wrap: nowrap;
 }
 
 .User__id-wrapper {

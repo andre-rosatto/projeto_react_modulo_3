@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
 import '../css/User.css';
 
-export default function User({ user, handlePay }) {
+export default function User({ user, setSelectedUser }) {
 	return (
-		<li className="User">
-			<img src={'../assets/profile_pics/' + user.pic} alt={'imagem de perfil de ' + user.name} />
+		<li className='User'>
+			<img src={'../assets/profile_pics/' + user.pic} alt={'Imagem de perfil de ' + user.name} />
 			<div className='User__info'>
-				<p>Nome do usuário: <span>{user.name}</span></p>
-				<div className="User__id-wrapper">
-					<p className="User__id">ID: {user.id}</p>
+				<p>{user.name}</p>
+				<div className='User__id-wrapper'>
+					<p className='User__id'>ID: {user.id}</p>
 					<p>Username: {user.username}</p>
 				</div>
 			</div>
-			<button onClick={() => handlePay(user)}>Pagar</button>
+			<button onClick={() => setSelectedUser(user)}>Pagar</button>
 		</li>
 	);
 }

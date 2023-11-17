@@ -1,0 +1,108 @@
+.modal-bg {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, .75);
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal-window {
+	width: 80%;
+	max-width: 500px;
+	background-color: black;
+	margin-top: 50px;
+	box-shadow: 0 0 10px black;
+}
+
+.modal-window button {
+	color: white;
+	border: 1px solid #3b3b3b;
+}
+
+.modal-window button:hover {
+	background-color: #3d3d3d;
+}
+
+.modal-window button:active {
+	background-color: #5f5f5f;
+}
+
+.modal-window header {
+	background: linear-gradient(#c6c8db, #acafca);
+	padding: 10px 15px;
+	border: 1px solid rgba(255, 255, 255, .5);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modal-window header div {
+	font-weight: bold;
+}
+
+.modal-window header div span {
+	color: #3a420d;
+	text-wrap: nowrap;
+	justify-self: flex-start;
+}
+
+.modal-window header button {
+	border: 1px solid rgba(255, 255, 255, .5);
+	border-radius: 3px;
+	background-color: #0d0d0d;
+	color: white;
+	font-weight: bold;
+	padding: 5px 10px;
+	margin: 0;
+	cursor: pointer;
+}
+
+.modal-window form {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	gap: 20px;
+	align-items: center;
+}
+
+.modal-window form input,
+.modal-window form select,
+.modal-window form button {
+	color: white;
+	font-size: 36px;
+	border: 1px solid #3b3b3b;
+	border-radius: 5px;
+}
+
+.modal-window form input,
+.modal-window form select {
+	background-color: #0d0d0d;
+	width: 90%;
+}
+
+.modal-window form button {
+	background-color: #1b1b1b;
+	width: 200px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 570px) {
+
+	.modal-window form input,
+	.modal-window form select,
+	.modal-window form button {
+		font-size: 24px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+
+	.modal-window form input,
+	.modal-window form select,
+	.modal-window form button {
+		font-size: 18px;
+	}
+}
