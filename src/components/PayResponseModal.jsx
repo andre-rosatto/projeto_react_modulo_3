@@ -1,15 +1,16 @@
 import React from "react";
+import ModalHeader from "./ModalHeader";
 
-import '../css/Modals.css'
+import '../css/Modals.css';
 
 export default function PayResponseModal({ payResponse, setPayResponse }) {
 	return (
 		<div className='modal-bg'>
 			<div className='modal-window'>
-				<header>
-					<div>Recido de pagamento</div>
-					<button onClick={() => { setPayResponse(null) }}>X</button>
-				</header>
+				<ModalHeader
+					title={'Recibo de pagamento'}
+					handleClose={() => { setPayResponse(null) }}
+				/>
 				<p>O pagamento {payResponse === 'fail' ? <strong>não</strong> : ''} foi concluído com sucesso.</p>
 			</div>
 		</div>

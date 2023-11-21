@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../css/Modals.css';
+import ModalHeader from './ModalHeader';
 
 export default function PayOptionsModal({ user, setSelectedUser, cards, handlePay }) {
 	const getCardLastDigits = (card) => {
@@ -30,10 +31,10 @@ export default function PayOptionsModal({ user, setSelectedUser, cards, handlePa
 	return (
 		<div className='modal-bg'>
 			<div className='modal-window'>
-				<header>
-					<div>Pagamento para <span>{user.name}</span></div>
-					<button onClick={() => { setSelectedUser(null) }}>X</button>
-				</header>
+				<ModalHeader
+					title={<>Pagamento para <span>{user.name}</span></>}
+					handleClose={() => setSelectedUser(null)}
+				/>
 				<form onSubmit={handleSubmit}>
 					<input
 						type='text'
@@ -53,3 +54,8 @@ export default function PayOptionsModal({ user, setSelectedUser, cards, handlePa
 		</div>
 	);
 }
+
+// <header>
+// 					<div>Pagamento para <span>{user.name}</span></div>
+// 					<button onClick={() => { setSelectedUser(null) }}>X</button>
+// 				</header>
