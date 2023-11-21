@@ -60,6 +60,12 @@
 	cursor: pointer;
 }
 
+.modal-window p {
+	color: white;
+	text-align: center;
+	margin: 50px 0;
+}
+
 .modal-window form {
 	display: flex;
 	flex-direction: column;

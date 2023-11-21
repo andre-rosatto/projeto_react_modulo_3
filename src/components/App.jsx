@@ -3,13 +3,16 @@ import UserList from './UserList';
 
 import '../css/App.css';
 import PayOptionsModal from './PayOptionsModal';
+import PayResponseModal from './PayResponseModal';
 
 export default function App() {
 	const PROFILE_API = 'https://run.mocky.io/v3/6fd56137-9a2b-4109-8d3f-e10025ebe5f3';
 	const CARDS_API = 'https://run.mocky.io/v3/97e3af7c-2644-4424-92d9-8564ede73a9b';
+	const TRANSACTION_API = 'https://run.mocky.io/v3/798e4cad-64a8-4c92-8670-882e093899e5';
 	const [userList, setUserList] = useState([]);
 	const [selectedUser, setSelectedUser] = useState(null);
 	const [cardList, setCardList] = useState([]);
+	const [payResponse, setPayResponse] = useState(null);
 
 	useEffect(() => {
 		fetch(PROFILE_API)
@@ -20,10 +23,33 @@ export default function App() {
 			.then(json => setCardList(json));
 	}, []);
 
+	const handlePay = (user, value, cardIdx) => {
+		const card = cardList[cardIdx];
+		fetch(TRANSACTION_API, {
+				method: "POST",
+				body: JSON.stringify({
+					card_number: card.card_number,
+					cvv: card.cvv,
+					expiry_date: card.expiry_date,
+					destination_user_id: user.id,
+					value: value
+				})
+			}
+		).then(() => {
+			setSelectedUser(null);
+			if (cardIdx === '1') {
+				setPayResponse('fail');
+			} else {
+				setPayResponse('success');
+			}
+		});
+	}
+
 	return (
 		<div className="App">
 			<UserList users={userList} setSelectedUser={setSelectedUser} />
-			{selectedUser && <PayOptionsModal user={selectedUser} setSelectedUser={setSelectedUser} cards={cardList} />}
+			{selectedUser && <PayOptionsModal user={selectedUser} setSelectedUser={setSelectedUser} cards={cardList} handlePay={handlePay}/>}
+			{payResponse && <PayResponseModal payResponse={payResponse} setPayResponse={setPayResponse} />}
 		</div>
 	);
 }
@@ -61,3 +87,18 @@ export default function App() {
 // 	  "expiry_date": "01/18"
 // 	}
 // ]
+
+//payload
+// {
+// 	// Card Info
+// 	card_number: string;
+// 	cvv: number;
+// 	expiry_date: string;
+  
+// 	// Destination User ID
+// 	destination_user_id: number;
+  
+// 	// Value of the Transaction
+// 	value: number;
+//   }
+  

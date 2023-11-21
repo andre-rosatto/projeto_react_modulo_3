@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../css/Modals.css';
 
-export default function PayOptionsModal({ user, setSelectedUser, cards }) {
+export default function PayOptionsModal({ user, setSelectedUser, cards, handlePay }) {
 	const getCardLastDigits = (card) => {
 		return card.card_number.substring(card.card_number.length - 4);
 	}
@@ -14,11 +14,17 @@ export default function PayOptionsModal({ user, setSelectedUser, cards }) {
 
 	const onInputChange = (event) => {
 		let rawValue = getRawValue(event.target.value);
-		console.log(rawValue);
 		event.target.value = rawValue === 0 ? '' : new Intl.NumberFormat('pt-BR', {
 			style: 'currency',
 			currency: 'BRL'
 		}).format(rawValue);
+	}
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const value = getRawValue(document.querySelector('form input').value);
+		const cardIdx = document.querySelector('#card-select').value;
+		handlePay(user, value, cardIdx);
 	}
 
 	return (
@@ -28,7 +34,7 @@ export default function PayOptionsModal({ user, setSelectedUser, cards }) {
 					<div>Pagamento para <span>{user.name}</span></div>
 					<button onClick={() => { setSelectedUser(null) }}>X</button>
 				</header>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<input
 						type='text'
 						name='value'
@@ -36,10 +42,12 @@ export default function PayOptionsModal({ user, setSelectedUser, cards }) {
 						required
 						onInput={onInputChange}
 					/>
-					<select>{
-						cards.map(card => { return <option key={card.card_number}>{'Cartão com final ' + getCardLastDigits(card)}</option> })
+					<select id='card-select'>{
+						cards.map((card, idx) => { return <option key={card.card_number} value={idx}>{'Cartão com final ' + getCardLastDigits(card)}</option> })
 					}</select>
-					<button>Pagar</button>
+					<button
+						type='submit'
+					>Pagar</button>
 				</form>
 			</div>
 		</div>
