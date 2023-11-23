@@ -2,10 +2,10 @@ import React from "react";
 
 import '../css/Modals.css';
 
-export default function ModalHeader({ title, handleClose }) {
+export default function ModalHeader({ handleClose, children }) {
 	return (
 		<header>
-			<div>{title}</div>
+			<div>{children}</div>
 			<button onClick={handleClose}>X</button>
 		</header>
 	);

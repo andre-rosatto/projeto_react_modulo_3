@@ -31,10 +31,9 @@ export default function PayOptionsModal({ user, setSelectedUser, cards, handlePa
 	return (
 		<div className='modal-bg'>
 			<div className='modal-window'>
-				<ModalHeader
-					title={<>Pagamento para <span>{user.name}</span></>}
-					handleClose={() => setSelectedUser(null)}
-				/>
+				<ModalHeader handleClose={() => setSelectedUser(null)}>
+					Pagamento para <span>{user.name}</span>
+				</ModalHeader>
 				<form onSubmit={handleSubmit}>
 					<input
 						type='text'
