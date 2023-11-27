@@ -37,7 +37,7 @@ li {
 	display: flex;
 }
 
-.User__id::after {
+.id::after {
 	content: '\00a0-\00a0';
 }
 
@@ -68,7 +68,7 @@ li button {
 		flex-direction: column;
 	}
 
-	.id:after {
+	.id::after {
 		content: '';
 	}
 }

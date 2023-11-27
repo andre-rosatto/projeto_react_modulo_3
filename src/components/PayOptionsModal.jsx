@@ -53,8 +53,3 @@ export default function PayOptionsModal({ user, setSelectedUser, cards, handlePa
 		</div>
 	);
 }
-
-// <header>
-// 					<div>Pagamento para <span>{user.name}</span></div>
-// 					<button onClick={() => { setSelectedUser(null) }}>X</button>
-// 				</header>
