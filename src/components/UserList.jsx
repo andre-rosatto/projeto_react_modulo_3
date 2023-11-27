@@ -1,7 +1,7 @@
 import React from 'react';
+import User from "./User";
 
 import '../css/UserList.css';
-import User from "./User";
 
 export default function UserList({ users, setSelectedUser }) {
 	return (

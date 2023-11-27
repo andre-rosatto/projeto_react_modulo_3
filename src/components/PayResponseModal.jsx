@@ -1,5 +1,5 @@
-import React from "react";
-import ModalHeader from "./ModalHeader";
+import React from 'react';
+import ModalHeader from './ModalHeader';
 
 import '../css/Modals.css';
 
