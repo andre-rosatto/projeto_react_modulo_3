@@ -37,7 +37,7 @@ export default function PayForm({ user, setSelectedUser, cards, setPayResponse }
 		}
 		).then(() => {
 			if (cardIdx === '1') {
-				setPayResponse('fail');
+				throw (new Error('payment fail'));
 			} else {
 				setPayResponse('success');
 			}
