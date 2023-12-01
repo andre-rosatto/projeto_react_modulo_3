@@ -2,7 +2,7 @@ import React from 'react';
 
 const TRANSACTION_API = 'https://run.mocky.io/v3/798e4cad-64a8-4c92-8670-882e093899e5';
 
-export default function PayForm({ user, setSelectedUser, cards, setPayResponse }) {
+export default function PayForm({ user, cards, setPayResponse }) {
 	const getCardLastDigits = (card) => {
 		return card.card_number.substring(card.card_number.length - 4);
 	}
