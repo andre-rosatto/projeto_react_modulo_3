@@ -49,7 +49,7 @@ export default function App() {
 					setPayResponse(null);
 				}}
 			>
-				<p>O pagamento {payResponse === 'fail' ? <strong>não</strong> : ''} foi concluído com sucesso.</p>
+				<p>O pagamento {payResponse === 'fail' && <strong>não</strong>} foi concluído com sucesso.</p>
 			</Modal>}
 		</div>
 	);
