@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import UserList from './UserList';
 
 import '../css/App.css';
 import Modal from './Modal';
 import PayForm from './PayForm';
+import UserList from './UserList';
 
 export default function App() {
 	const PROFILE_API = 'https://run.mocky.io/v3/6fd56137-9a2b-4109-8d3f-e10025ebe5f3';
